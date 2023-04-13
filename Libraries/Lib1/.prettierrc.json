@@ -1,0 +1,19 @@
+{
+  "overrides": [
+    {
+      "files": ["*.xml"],
+      "options": {
+        "parser": "html"
+      }
+    }
+  ],
+  "useTabs": false,
+  "tabWidth": 2,
+  "semi": true,
+  "trailingComma": "all",
+  "singleQuote": true,
+  "bracketSpacing": true,
+  "singleAttributePerLine": true,
+  "importOrder": ["^sap/(.*)$", "<THIRD_PARTY_MODULES>", "^my/(.*)$", "^[./]"],
+  "importOrderSeparation": true
+}

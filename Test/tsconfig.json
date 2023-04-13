@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "target": "es2015",
+    "module": "es2015",
+    "skipLibCheck": true,
+    "preserveConstEnums": true,
+    "sourceMap": false,
+    "allowJs": true,
+    "strict": true,
+    "strictNullChecks": false,
+    "strictPropertyInitialization": false,
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "moduleResolution": "node",
+    "typeRoots": [
+      "./node_modules/@types",
+      "./node_modules/@openui5/ts-types-esm"
+    ],
+    "paths": {
+      "my/projects/test/*": ["./src/*"],
+      "my/libraries/lib1/*": [
+        "node_modules/my.libraries.lib1/src/my/libraries/lib1/*"
+      ]
+    }
+  },
+  "include": [
+    "./src/**/*",
+    "node_modules/my.libraries.lib1/src/my/libraries/lib1/**/*"
+  ]
+}

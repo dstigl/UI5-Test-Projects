@@ -1,0 +1,55 @@
+{
+  "name": "myapp",
+  "version": "1.0.0",
+  "description": "UI5 Application: myapp",
+  "author": "UI5 Team",
+  "license": "Apache-2.0",
+  "scripts": {
+    "build": "npm-run-all build:ts build:ui5",
+    "build:opt": "npm-run-all build:ts build:ui5:opt",
+    "build:ts": "babel src --out-dir webapp --source-maps true --extensions \".ts,.js\" --copy-files",
+    "build:ui5": "ui5 build --clean-dest",
+    "build:ui5:opt": "ui5 build self-contained --clean-dest --all",
+    "start": "npm-run-all --parallel watch:ts start:ui5",
+    "watch:ts": "babel src --out-dir webapp --source-maps true --extensions \".ts,.js\" --copy-files --watch",
+    "watch:lib1": "npm explore my.libraries.lib1 -- npm run watch:ts",
+    "install:lib1": "(cd ../Libraries/Lib1 && npm install)",
+    "start:ui5": "ui5 serve --port 8080 -o index.html",
+    "start:dist": "ui5 serve  --port 8080 -o index.html --config ui5-dist.yaml",
+    "ts-typecheck": "tsc --noEmit",
+    "lint": "eslint src"
+  },
+  "dependencies": {
+    "@stomp/stompjs": "^7.0.0",
+    "@ui5/cli": "3.0.3",
+    "my.libraries.lib1": "file:../Libraries/Lib1",
+    "ws": "^8.12.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.21.0",
+    "@babel/core": "^7.21.4",
+    "@babel/preset-env": "^7.21.4",
+    "@babel/preset-typescript": "^7.21.4",
+    "@openui5/ts-types-esm": "1.104.0",
+    "@typescript-eslint/eslint-plugin": "^5.58.0",
+    "@typescript-eslint/parser": "^5.58.0",
+    "@ui5/cli": "^3.0.7",
+    "@ui5/ts-interface-generator": "^0.5.5",
+    "babel-preset-transform-ui5": "^7.1.4",
+    "chart.js": "^4.2.1",
+    "eslint": "^8.38.0",
+    "npm-run-all": "^4.1.5",
+    "typescript": "^5.0.4",
+    "ui5-middleware-livereload": "^0.8.2",
+    "ui5-tooling-modules": "^0.9.4"
+  },
+  "ui5": {
+    "dependencies": [
+      "ui5-middleware-livereload",
+      "ui5-tooling-modules",
+      "my.libraries.lib1",
+      "d3",
+      "@stomp/stompjs"
+    ]
+  }
+}
