@@ -2,6 +2,9 @@ import Control from "sap/ui/core/Control";
 import { IconColor } from "sap/ui/core/library";
 import BaseController from "./BaseController";
 import Event from "sap/ui/base/Event";
+import Lib1Stomp from "my/libraries/lib1/Lib1Stomp";
+
+console.log(Lib1Stomp);
 
 /**
  * @namespace my.projects.test.controller

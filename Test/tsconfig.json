@@ -1,31 +1,22 @@
 {
   "compilerOptions": {
-    "target": "es2015",
-    "module": "es2015",
+    "target": "es2022",
+    "module": "es2022",
+    "moduleResolution": "node",
     "skipLibCheck": true,
-    "preserveConstEnums": true,
-    "sourceMap": false,
     "allowJs": true,
     "strict": true,
     "strictNullChecks": false,
     "strictPropertyInitialization": false,
-    "rootDir": "./src",
-    "outDir": "./dist",
+    "rootDir": "./webapp",
     "baseUrl": "./",
-    "moduleResolution": "node",
-    "typeRoots": [
-      "./node_modules/@types",
-      "./node_modules/@openui5/ts-types-esm"
-    ],
+    "sourceMap": true,
     "paths": {
-      "my/projects/test/*": ["./src/*"],
-      "my/libraries/lib1/*": [
-        "node_modules/my.libraries.lib1/src/my/libraries/lib1/*"
-      ]
+      "my/projects/test/*": ["./webapp/*"],
+      "my/libraries/lib1/*": ["./node_modules/my.libraries.lib1/src/my/libraries/lib1/*"],
+      "unit/*": ["./webapp/test/unit/*"],
+      "integration/*": ["./webapp/test/integration/*"]
     }
   },
-  "include": [
-    "./src/**/*",
-    "node_modules/my.libraries.lib1/src/my/libraries/lib1/**/*"
-  ]
+  "include": ["./webapp/**/*.ts"]
 }

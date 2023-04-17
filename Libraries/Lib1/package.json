@@ -4,43 +4,41 @@
   "description": "",
   "private": true,
   "scripts": {
-    "build": "run-s build:ts build:test-ts build:ui5",
-    "build:ts": "babel src --out-dir src-gen --extensions \".ts,.js\" --copy-files --include-dotfiles",
-    "build:test-ts": "babel test --out-dir test-gen --extensions \".ts,.js\" --copy-files --include-dotfiles",
-    "build:ui5": "ui5 build --clean-dest",
-    "watch": "run-p watch:controls watch:ts watch:test-ts start",
-    "watch:ts": "babel src --out-dir src-gen --extensions \".ts,.js\" --copy-files --include-dotfiles  --watch",
-    "watch:controls": "npx @ui5/ts-interface-generator --watch",
-    "start": "run-p watch:ts watch:test-ts start:ui5",
+    "clean": "rimraf dist coverage",
+    "build": "npm run build:controls && ui5 build --clean-dest",
+    "build:controls": "npx @ui5/ts-interface-generator",
+    "start": "run-p start:controls start:server",
+    "start:controls": "npx @ui5/ts-interface-generator --watch",
+    "start:server": "ui5 serve -o test-resources/my/libraries/lib1/Lib1Stomp.html",
+    "start:testsuite": "ui5 serve -o test-resources/my/libraries/lib1/qunit/testsuite.qunit.html",
+    "testsuite": "run-p start:controls start:testsuite",
     "ts-typecheck": "tsc --noEmit",
-    "lint:src": "eslint src",
-    "lint:test": "eslint test",
-    "lint": "run-s lint:src lint:test"
+    "lint": "eslint src test",
+    "karma": "karma start",
+    "karma-ci": "karma start karma-ci.conf.js",
+    "karma-ci-cov": "karma start karma-ci-cov.conf.js",
+    "test": "npm run lint && npm run karma-ci-cov"
   },
   "dependencies": {
-    "@stomp/stompjs": "^7.0.0",
-    "ws": "^8.13.0"
+    "@stomp/stompjs": "^7.0.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.21.0",
-    "@babel/core": "^7.21.4",
-    "@babel/preset-env": "^7.21.4",
-    "@babel/preset-typescript": "^7.21.4",
-    "@trivago/prettier-plugin-sort-imports": "^4.1.1",
-    "@types/openui5": "1.104.0",
+    "@types/openui5": "1.112.0",
     "@typescript-eslint/eslint-plugin": "^5.58.0",
     "@typescript-eslint/parser": "^5.58.0",
     "@ui5/cli": "^3.0.7",
     "@ui5/ts-interface-generator": "^0.5.5",
-    "babel-preset-transform-ui5": "^7.1.4",
     "eslint": "^8.38.0",
+    "karma": "^6.4.1",
+    "karma-chrome-launcher": "^3.1.1",
+    "karma-coverage": "^2.2.0",
+    "karma-ui5": "^3.0.2",
+    "karma-ui5-transpile": "^0.3.5",
     "npm-run-all": "^4.1.5",
+    "rimraf": "^5.0.0",
     "typescript": "^5.0.4",
-    "ui5-middleware-livereload": "^0.8.2"
-  },
-  "ui5": {
-    "dependencies": [
-      "ui5-middleware-livereload"
-    ]
+    "ui5-middleware-livereload": "^0.8.2",
+    "ui5-tooling-modules": "^0.9.7",
+    "ui5-tooling-transpile": "^0.7.4"
   }
 }
