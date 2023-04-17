@@ -1,21 +1,17 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "module": "ESNext",
+    "target": "es2022",
+    "module": "es2022",
     "moduleResolution": "node",
     "skipLibCheck": true,
-    "preserveConstEnums": true,
-    "sourceMap": false,
     "allowJs": true,
     "strict": true,
-    "strictNullChecks": true,
-    "strictPropertyInitialization": true,
+    "strictPropertyInitialization": false,
     "rootDir": "./",
-    "outDir": "./src-gen",
     "baseUrl": "./",
     "paths": {
-      "src/my/libraries/lib1/*": ["./src/my/libraries/lib1/*"]
+      "my/libraries/lib1/*": ["./src/my/libraries/lib1/*"]
     }
   },
-  "include": ["./src/**/*"]
+  "include": ["./src/**/*", "./test/**/*"]
 }
