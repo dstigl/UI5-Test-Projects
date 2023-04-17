@@ -4,6 +4,7 @@ module.exports = function (config) {
 		reporters: ["progress", "coverage"],
 		preprocessors: {
 			"src/**/*.ts": ["ui5-transpile", "coverage"],
+			"test/**/*.ts": ["ui5-transpile", "coverage"],
 		},
 		coverageReporter: {
 			dir: "coverage",
