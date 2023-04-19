@@ -1,14 +1,20 @@
 <mvc:View
 	controllerName="my.projects.test.controller.Main"
 	displayBlock="true"
-	xmlns="sap.m"
+	xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:m="sap.m"
 	xmlns:core="sap.ui.core"
 	xmlns:f="sap.f"
 	xmlns:grid="sap.ui.layout.cssgrid"
-	xmlns:mvc="sap.ui.core.mvc">
+	xmlns:mvc="sap.ui.core.mvc"
+  xmlns:controls="my.projects.test.control"
+  xmlns:lib1="my.libraries.lib1">
 
-	<Page id="page" title="{i18n>title}">
-		<content>
+	<m:Page id="page" title="{i18n>title}">
+		<m:content>
+      <m:Text text="Text"/>
+      <lib1:CustomLibTextControl text="CustomLibTextControl" />
+      <controls:CustomProjectTextControl text="CustomProjectTextControl" />
 			<f:GridList id="statesList"
 				items="{path: '/data', sorter: {path: 'weekIncidence', descending: true}}"
 				noDataText="No state data"
@@ -17,22 +23,22 @@
 					<grid:GridBoxLayout/>
 				</f:customLayout>
 				<f:items>
-					<CustomListItem type="Active" press=".navToIncidenceDetail">
-						<HBox justifyContent="SpaceBetween" class="sapUiSmallMargin">
-							<Title text="{name}" wrapping="true"/>
+					<m:CustomListItem type="Active" press=".navToIncidenceDetail">
+						<m:HBox justifyContent="SpaceBetween" class="sapUiSmallMargin">
+							<m:Title text="{name}" wrapping="true"/>
 							<core:Icon 
 								src="sap-icon://wounds-doc" 
 								size="2.5rem" 
 								color="{path: 'weekIncidence', formatter: '.formatIconColor'}"/>
-						</HBox>
-						<HBox justifyContent="SpaceBetween" class="sapUiSmallMargin">
-							<Label text="{i18n>incidenceLabel}:"/>
-							<ObjectNumber number="{path: 'weekIncidence', formatter: '.formatIncidence'}"/>
-						</HBox>
-					</CustomListItem>
+						</m:HBox>
+						<m:HBox justifyContent="SpaceBetween" class="sapUiSmallMargin">
+							<m:Label text="{i18n>incidenceLabel}:"/>
+							<m:ObjectNumber number="{path: 'weekIncidence', formatter: '.formatIncidence'}"/>
+						</m:HBox>
+					</m:CustomListItem>
 				</f:items>
 			</f:GridList>
-		</content>
-	</Page>
+		</m:content>
+	</m:Page>
 
 </mvc:View>

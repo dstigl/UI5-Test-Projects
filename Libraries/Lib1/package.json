@@ -7,6 +7,7 @@
     "clean": "rimraf dist coverage",
     "build": "npm run build:controls && ui5 build --clean-dest",
     "build:controls": "npx @ui5/ts-interface-generator",
+    "watch:controls": "npx @ui5/ts-interface-generator --watch",
     "start": "run-p start:controls start:server",
     "start:controls": "npx @ui5/ts-interface-generator --watch",
     "start:server": "ui5 serve -o test-resources/my/libraries/lib1/Lib1Stomp.html",

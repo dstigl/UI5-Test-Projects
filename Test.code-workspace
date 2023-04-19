@@ -1,0 +1,11 @@
+{
+  "folders": [
+	{
+		"path": "Test"
+	},
+	{
+		"path": "Libraries/Lib1"
+	}
+],
+  "settings": {}
+}
