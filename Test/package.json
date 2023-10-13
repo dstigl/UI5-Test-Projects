@@ -25,7 +25,7 @@
     "my.libraries.lib1": "file:../Libraries/Lib1"
   },
   "devDependencies": {
-    "@types/openui5": "1.114.0",
+    "@types/openui5": "1.113.0",
     "@typescript-eslint/eslint-plugin": "^5.59.0",
     "@typescript-eslint/parser": "^5.59.0",
     "@ui5/cli": "^3.0.7",
@@ -41,6 +41,6 @@
     "ui5-middleware-livereload": "^0.8.2",
     "ui5-middleware-simpleproxy": "^0.9.6",
     "ui5-tooling-modules": "^0.9.7",
-    "ui5-tooling-transpile": "^0.7.8",
+    "ui5-tooling-transpile": "^0.7.8"
   }
 }
